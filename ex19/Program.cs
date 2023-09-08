@@ -14,7 +14,9 @@ namespace ex19
             int limitColumn = 10;
             int[,] array = new int[limitLine, limitColumn];
             int maxElement = int.MinValue;
+            int zeroingElement = 0;
             Random random = new Random();
+            Console.WriteLine("Начальный массив:");
 
             for (int line = 0; line < array.GetLength(0); line++)
             {
@@ -27,13 +29,13 @@ namespace ex19
                         maxElement = array[line, column];
                     }
 
-                    Console.Write($"{array[line, column]} ");
+                    Console.Write($"{array[line, column]}|");
                 }
 
                 Console.WriteLine();
             }
 
-            Console.WriteLine();
+            Console.WriteLine("\nКонечный массив:");
 
             for (int line = 0; line < array.GetLength(0); line++)
             {
@@ -42,16 +44,16 @@ namespace ex19
 
                     if (array[line, column] < maxElement)
                     {
-                        array[line, column] = 0;
+                        array[line, column] = zeroingElement;
                     }
 
-                    Console.Write($"{array[line, column]} ");
+                    Console.Write($"{array[line, column]}|");
                 }
 
                 Console.WriteLine();
             }
 
-            Console.WriteLine($"Наибольший элемент равен: {maxElement}");
+            Console.WriteLine($"\nНаибольший элемент равен: {maxElement}");
         }
     }
 }
