@@ -15,6 +15,8 @@ namespace ex19
             int[,] array = new int[limitLine, limitColumn];
             int maxElement = int.MinValue;
             int changingElement = 0;
+            int minRandomValue = 1;
+            int maxRandomValue = 10;
             Random random = new Random();
             Console.WriteLine("Начальный массив:");
 
@@ -22,7 +24,7 @@ namespace ex19
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    array[i, j] = random.Next(int.MinValue, int.MaxValue);
+                    array[i, j] = random.Next(minRandomValue, maxRandomValue);
 
                     if (array[i, j] > maxElement)
                     {
@@ -41,7 +43,7 @@ namespace ex19
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if (array[i, j] < maxElement)
+                    if (array[i, j] == maxElement)
                     {
                         array[i, j] = changingElement;
                     }
