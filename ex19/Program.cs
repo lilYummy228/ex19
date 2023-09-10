@@ -14,22 +14,22 @@ namespace ex19
             int limitColumn = 10;
             int[,] array = new int[limitLine, limitColumn];
             int maxElement = int.MinValue;
-            int zeroingElement = 0;
+            int changingElement = 0;
             Random random = new Random();
             Console.WriteLine("Начальный массив:");
 
-            for (int line = 0; line < array.GetLength(0); line++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int column = 0; column < array.GetLength(1); column++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    array[line, column] = random.Next(int.MinValue, int.MaxValue);
+                    array[i, j] = random.Next(int.MinValue, int.MaxValue);
 
-                    if (array[line, column] > maxElement)
+                    if (array[i, j] > maxElement)
                     {
-                        maxElement = array[line, column];
+                        maxElement = array[i, j];
                     }
 
-                    Console.Write($"{array[line, column]}|");
+                    Console.Write($"{array[i, j]}|");
                 }
 
                 Console.WriteLine();
@@ -37,17 +37,16 @@ namespace ex19
 
             Console.WriteLine("\nКонечный массив:");
 
-            for (int line = 0; line < array.GetLength(0); line++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int column = 0; column < array.GetLength(1); column++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-
-                    if (array[line, column] < maxElement)
+                    if (array[i, j] < maxElement)
                     {
-                        array[line, column] = zeroingElement;
+                        array[i, j] = changingElement;
                     }
 
-                    Console.Write($"{array[line, column]}|");
+                    Console.Write($"{array[i, j]}|");
                 }
 
                 Console.WriteLine();
